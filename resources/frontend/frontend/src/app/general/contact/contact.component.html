@@ -1,0 +1,147 @@
+<div class="row">
+
+  <div class="col-lg-6 contact-us-form">
+    <div class=" m-4">
+      <form action="" [formGroup]='requestForm' class="form p-3">
+
+        <div class="row mt-2 gx-5">
+          <div class="col-lg-6 ">
+            <div class="contact-form-input">
+              <p class="label">* FIRST NAME</p>
+              <span class="input">
+                <input type="text" formControlName='fname' class="">
+              </span>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="contact-form-input">
+              <p class="label">* LAST NAME</p>
+              <span class="input">
+                <input type="text" formControlName='lname' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">* EMAIL</p>
+              <span class="input">
+                <input type="email" formControlName='email' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">* PHONE NUMBER</p>
+              <span class="input">
+                <input type="text" formControlName='phone_no' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">INSTAGRAM HANDLE / FACEBOOK NAME</p>
+              <span class="input">
+                <input type="text" formControlName='instagram' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">* MESSAGE</p>
+              <p class="input" style="min-height: 120px; min-width:105%;">
+                <textarea name="" id="" formControlName='messager'
+                 cols="55" rows="5"></textarea>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-lg-center mt-2">
+          <div class="col-lg-6">
+            <button type="button" (click)="submit()" class="contact-form-button">
+              SEND MESSAGE
+            </button>
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="help-section p-5">
+
+      <div class="heading">
+        <p class="">How Can We Help?</p>
+      </div>
+      <div class="subheading">
+        <p class="">Please select a topic below related to your inquiry.
+           If you don't find what you need, fill out our contact form.</p>
+      </div>
+
+      <div class="help-items">
+
+        <a [routerLink]="['/service/resale']" class="help-item">
+          <div class="heading d-flex justify-content-between">
+            <span class="">Donate Clothes</span>
+            <span class="">
+              <i class="fas fa-chevron-right"></i>
+            </span>
+          </div>
+          <div class="link">
+            <a class="">
+              Learn how to donate clothes for reselling
+            </a>
+          </div>
+        </a>
+
+        <a class="help-item" href="https://www.instagram.com/asedas.finds/">
+          <div class="heading d-flex justify-content-between">
+            <span class="">Connect with founder</span>
+            <span class="">
+              <i class="fas fa-chevron-right"></i>
+            </span>
+          </div>
+          <div class="link">
+            <a class="">
+              Connect with founder to get more insight into company
+            </a>
+          </div>
+        </a>
+
+        <a class="help-item" [routerLink]="['/service/shopping-request']"  >
+          <div class="heading d-flex justify-content-between">
+            <span class="">Personal request</span>
+            <span class="">
+              <i class="fas fa-chevron-right"></i>
+            </span>
+          </div>
+          <div class="link">
+            <a class="">
+              Discover how to get specific items
+            </a>
+          </div>
+        </a>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

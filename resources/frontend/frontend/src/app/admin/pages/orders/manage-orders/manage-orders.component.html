@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row bg-white">
+    <div class="col-lg-12">
+
+
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-10">
+          <div class="page-heading">
+            <p class="fs-2 fw-bold text-center">ALL ORDERS</p>
+          </div>
+
+          <table class="mt-5 mb-5 table table-striped table-hover text-primary">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Reference</th>
+                <th scope="col"></th>
+              </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <th scope='row'>{{order.id}}</th>
+              <td>{{order.email}} </td>
+              <td
+              [ngClass]="{'text-danger': order.status===0,'text-success': order.status===1}" >
+              {{order.status===0?'PENDING':'SUCCESSFUL'}}
+            </td>
+            <td>{{order.phone_no}} </td>
+            <td>{{order.amount | currency: 'GHS '}} </td>
+            <td>{{order.reference}} </td>
+              <td>
+                <span class="">
+                  <button class="btn btn-success text-white" (click)="edit(order)">
+                    View
+                  </button>
+                </span>
+
+                <span class="ps-3">
+                  <button class="btn btn-danger" (click)="delete(order.id)">
+                    Delete
+                  </button>
+                </span>
+              </td>
+
+            </tr>
+          </tbody>
+
+          </table>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <app-view-order-products [order]='selectedOrder'></app-view-order-products>
+
+
+
+
+
+
+<app-delete-order [order_id]='deleteOrderId'  ></app-delete-order>
+
+
+
+

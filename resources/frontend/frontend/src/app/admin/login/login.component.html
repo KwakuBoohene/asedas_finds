@@ -1,0 +1,99 @@
+<div class="">
+  <div class="login-page container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-4 align-self-center">
+        <div class="login-form">
+
+          <div class="row justify-content-md-center">
+            <div class="col-lg-5">
+              <div class="logo pl-2 mb-4">
+                <img src="../../../../assets/img/logo_white.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <div class="auth-form-heading">
+            <p class="text-center">LOGIN</p>
+          </div>
+
+
+          <div class="m-3" *ngIf="message && success===false" [@fadeInOnEnter] [@fadeOutOnLeave]>
+            <div class="alert alert-danger" >
+              {{message + ' Please make sure the details you enter are valid '}}
+            </div>
+          </div>
+
+
+          <div class="m-3" *ngIf="getParams.password" [@fadeInOnEnter] [@fadeOutOnLeave]>
+            <div class="alert alert-success" >
+             Password Has Successfully been Changed. Please login with your new Password
+            </div>
+          </div>
+
+          <div class="m-3" *ngIf="getParams.new_account" [@fadeInOnEnter] [@fadeOutOnLeave]>
+            <div class="alert alert-success" >
+            Your account has been setup successfully. Please login with your new account
+            </div>
+          </div>
+
+
+
+          <form class="" [formGroup]='loginForm' (ngSubmit)="onSubmit()">
+            <div class="auth-form-control">
+              <input type="text" formControlName="email"
+               placeholder="Email" class="login-control">
+            </div>
+
+            <div class="" *ngIf="isSubmitted && loginForm.controls.email.invalid" [@fadeInOnEnter] [@fadeOutOnLeave]>
+              <div class="alert alert-danger">
+                Email Field is Invalid
+              </div>
+            </div>
+
+
+            <div class="auth-form-control">
+              <input type="password" placeholder="Password"
+              formControlName="password" class="login-control">
+            </div>
+
+            <div class="" *ngIf="isSubmitted && loginForm.controls.password.invalid" [@fadeInOnEnter] [@fadeOutOnLeave]>
+              <div class="alert alert-danger">
+                Password Field is invalid
+              </div>
+            </div>
+
+
+            <div class="pb-3 d-flex justify-content-between">
+              <span class="">
+                <input type="checkbox" name="" id="">
+                <span class="">
+                  Remember Me?
+                </span>
+              </span>
+
+              <span class="">
+                <a [routerLink]='["/reset-password"]' class="">Forgot Password</a>
+              </span>
+            </div>
+
+
+            <div class="auth-form-submit"  >
+              <input type="submit" value="LOGIN"  >
+              <!-- <input type="button" value='LOGIN' [routerLink]="['/user']" routerLinkActive="router-link-active" > -->
+            </div>
+
+            <div class="mt-5 text-center">
+              <span class="">Don't have an account already?</span>
+              <a [routerLink]="['/register']"   class="p-1">Sign Up here</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,19 @@
+<div class="slider mt-3">
+  <div class="categories">
+    <div *ngFor="let item of categories; let i = index" id="category-{{i+1}}"
+     class="align-items-end"
+     [ngStyle]="{backgroundImage:returnUrlString(item.image)}"
+     style="background-repeat: no-repeat;
+     background-attachment:scroll;
+     background-position: 50% 10%;
+     background-size: cover;"
+     >
+        <div class="category-button">
+          <button type="button" (click)="shopByCategory(item.id)" class="" >
+            {{item.name}}
+          </button>
+        </div>
+    </div>
+
+  </div>
+</div>

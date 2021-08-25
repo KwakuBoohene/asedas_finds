@@ -1,0 +1,124 @@
+<div class="shop-desc pt-5 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-10">
+        <div class="heading pt-5">
+          <span class="">All Items</span>
+        </div>
+
+        <div class="body pb-5">
+            <span class="">
+              The Spirit exists within every sphere, body, and realm.
+              That of the air, the earth, the water, the wind, all that is connected to create a singular, life changing moment.
+              In this, The Spirit seeks to create a community which feels, breathes, The Spirit exists within every sphere, body, and realm.
+              That of the air, the earth, the water, the wind, all that is connected to create a singular, life changing moment. In this, The Spirit seeks to create a community which feels, breathes,
+              The Spirit exists within every sphere, body, and realm.
+             That of the air, the earth, the water, the wind, all that is connected to create a singular, life changing moment. In this, The Spirit seeks to create a community which feels, breathes,
+            </span>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-2  col-md-5 col-sm-10">
+            <div class="d-lg-flex justify-content-lg-between ">
+              <span class="search-option">
+                <select aria-placeholder="Category" (change)="changeCategory()" [(ngModel)]="selectedCategory" name="" id="" class="" >
+                  <option value="" class="">All Categories</option>
+                  <option   *ngFor="let category of categories" value={{category.id}}>
+                    {{category.name}}
+                  </option>
+                </select>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-2 offset-lg-1 col-sm-12">
+            <span class="sort-option">
+              <select aria-placeholder="Brand" [(ngModel)]="sortOption" (change)='sort()' name="" id="" class="">
+                <option value="">Sort by</option>
+                <option value="0" class="">Discounted First</option>
+                <option value="1" class="">Price - Low to High</option>
+                <option value="2" class="">Price - High to Low</option>
+              </select>
+            </span>
+          </div>
+        </div>
+
+        <div class="row mt-3 justify-content-center">
+          <div class="col-lg-2">
+            <div class="searchbar d-flex align-self-center">
+              <span class="searchbar-space">
+                <input type="text" class="search-input bg-transparent">
+
+                <span class="">
+                  <i class="fas fa-search"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<div class="products" >
+  <div class="products-header text-center p-3 fs-2">
+    <p class="">{{products.length}} items found</p>
+  </div>
+
+  <div class="product-grid">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-sm-12 col-md-12 col-12 row   justify-content-md-start">
+        <ng-container *ngFor="let product of products; let i=index">
+          <div *ngIf="product.images" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6" >
+            <div class="product-item p-1">
+              <div class="product-image">
+                <img (click)="viewItem(product)" src='{{"http://localhost/storage/images/" + product.images[0].image}}' class='img-fluid hover' alt="">
+              </div>
+              <div class="product-title">
+                <span (click)="viewItem(product)" class="hover">{{product.name}} </span>
+              </div>
+              <div class="product-price">
+
+
+                <ng-container *ngIf="product.discount;else elseTemplate;">
+                  <span [ngClass]="{'text-danger text-decoration-line-through': product.discount.active}"
+                   class="me-2">
+                   {{product.price | currency:'GH₵ '}}
+                  </span>
+                  <span *ngIf="product.discount.active" class="">
+                    {{ (product.price* (0.01*(100-product.discount.discount_percent))) | currency : 'GH₵ ' }}
+                  </span>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <span class="">
+                   {{product.price | currency:'GH₵ '}}
+                  </span>
+                </ng-template>
+
+
+              </div>
+
+            </div>
+          </div>
+        </ng-container>
+
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="load-more" *ngIf="products.length > 3">
+    <div class="d-flex justify-content-center">
+      <button class="">
+        LOAD MORE
+      </button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="feature p-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-sm-12">
+          <div class="feature-content text-center">
+            <div class="heading">
+              CLOTHING RESALE
+            </div>
+            <div class="body">
+              <span class="">
+
+              </span>
+            </div>
+          </div>
+          <div class="feature-image mt-1">
+            <iframe class="" src="https://www.youtube.com/embed/FnXGsZMpXEE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 contact-us-form">
+
+    <div class=" m-4">
+      <div class="heading text-center">
+        PLEASE FILL THE FORM BELOW
+      </div>
+      <form action="" [formGroup]='requestForm' class="form ">
+
+        <div class="row mt-2 gx-5">
+          <div class="col-lg-12 ">
+            <div class="contact-form-input">
+              <p class="label">* NAME</p>
+              <span class="input">
+                <input type="text" formControlName='name' class="">
+              </span>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">* LOCATION</p>
+              <span class="input">
+                <input type="text" formControlName='location' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2 gx-5">
+          <div class="col-lg-6">
+            <div class="contact-form-input">
+              <p class="label">* NUMBER OF CLOTHES</p>
+              <span class="input">
+                <input type="input" formControlName='items_no' class="">
+              </span>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="contact-form-input">
+              <p class="label">* STATE OF CLOTHES</p>
+              <span class="input">
+                <select name="" formControlName='state' id="" class="">
+                  <option value="NEW WITH TAGS" class="">NEW WITH TAGS</option>
+                  <option value="NOT NEW" class="">NOT NEW</option>
+                </select>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">* PHONE NUMBER</p>
+              <span class="input">
+                <input type="text" formControlName='phone_no' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">INSTAGRAM HANDLE / FACEBOOK NAME</p>
+              <span class="input">
+                <input type="text" formControlName='instagram' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">EMAIL</p>
+              <span class="input">
+                <input type="email" formControlName='email' class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-lg-center mt-2">
+          <div class="col-lg-6">
+            <button type="button" (click)="submit()" class="contact-form-button">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+</div>

@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row bg-white">
+      <div class="col-lg-12">
+
+        <div class="add-discounts-button p-5">
+          <button
+          class="btn btn-primary"
+          (click)="openAddModal()"
+          >
+            ADD SIZE TYPE
+          </button>
+        </div>
+
+
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-9">
+
+            <div *ngIf="message" [@fadeInOnEnter] [@fadeOutOnLeave] class="m-3">
+              <div class="alert alert-success">
+                {{message}}
+              </div>
+            </div>
+
+            <div class="page-heading">
+              <p class="fs-2 fw-bold text-center">ALL SIZE TYPES</p>
+            </div>
+
+            <table class="mt-5 mb-5 table table-striped table-hover text-primary">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Type</th>
+                  <th scope='col'></th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let sizeType of sizeTypes">
+                <th scope='row'>{{sizeType.id}}</th>
+                <td>{{sizeType.type}} </td>
+                <td>
+                  <span class="">
+                    <button class="btn btn-success text-white" (click)="edit(sizeType)">
+                      Edit
+                    </button>
+                  </span>
+
+                  <span class="ps-3">
+                    <button class="btn btn-danger" (click)="delete(sizeType)">
+                      Delete
+                    </button>
+                  </span>
+                </td>
+
+              </tr>
+            </tbody>
+
+            </table>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <app-add-edit-size-type (messageEmitter)='receiveMessage($event)' [sizeType]='selectedSizeType'></app-add-edit-size-type>
+
+
+  <app-delete-size-type [sizeType]='deleteSizeType'  ></app-delete-size-type>
+
+
+
+

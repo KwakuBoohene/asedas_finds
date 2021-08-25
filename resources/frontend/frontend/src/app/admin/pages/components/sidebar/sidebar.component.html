@@ -1,0 +1,108 @@
+<div class="sidebar">
+  <div class="sidebar-header d-flex justify-content-center">
+      <img src="../../../../../assets/img/logo_white.png"
+      class="img-fluid" alt="">
+  </div>
+
+  <div class="sidebar-body">
+    <div [routerLink]="['/admin/dashboard']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="router-link-active" class="sidebar-item">
+      <span class="icon">
+        <i class="fas fa-home"></i>
+      </span>
+      <span class="title">DASHBOARD</span>
+    </div>
+
+    <div class="sidebar-item"
+    [routerLink]="['/admin/dashboard/orders']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="router-link-active"
+    >
+      <span class="icon">
+        <i class="fas fa-list-ul"></i>
+      </span>
+      <span class="title">ORDERS</span>
+    </div>
+
+    <div class="sidebar-item"
+    [routerLink]="['/admin/dashboard/product']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="router-link-active"
+    >
+      <div class="sidebar-item-text">
+        <span class="icon">
+          <i class="fas fa-tshirt"></i>
+        </span>
+        <span class="title" [ngClass]="{'active': sidebarRouter.url.includes('/admin/dashboard/product')}" >PRODUCTS</span>
+      </div>
+    </div>
+
+    <div class="sidebar-item"
+    [routerLink]="['/admin/dashboard/category']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="router-link-active"
+    >
+      <span class="icon">
+        <i class="fas fa-th"></i>
+      </span>
+      <span class="title"
+      [ngClass]="{'active': sidebarRouter.url.includes('/admin/dashboard/category')}"
+      >CATEGORIES</span>
+    </div>
+
+    <div class="sidebar-item"
+    [routerLink]="['/admin/dashboard/size']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="router-link-active"
+    >
+      <span class="icon">
+        <i class="fas fa-boxes"></i>
+      </span>
+      <span class="title"
+
+      >SIZES</span>
+    </div>
+
+    <div class="sidebar-item"
+    [routerLink]="['/admin/dashboard/size-type']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="router-link-active"
+    >
+      <span class="icon">
+        <i class="fas fa-building"></i>
+      </span>
+      <span class="title"
+      >SIZE TYPES</span>
+    </div>
+
+    <!-- <div class="sidebar-item">
+      <span class="icon">
+        <i class="fas fa-tags"></i>
+      </span>
+      <span class="title">TAGS</span>
+    </div>
+
+    <div class="sidebar-item">
+      <span class="icon">
+        <i class="fas fa-money-bill-wave"></i>
+      </span>
+      <span class="title">PAYMENT</span>
+    </div> -->
+
+    <div class="sidebar-item"
+    [routerLink]="['/admin/dashboard/discount']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="router-link-active"
+    >
+      <span class="icon">
+        <i class="fas fa-percentage"></i>
+      </span>
+      <span class="title">DISCOUNTS</span>
+    </div>
+
+
+
+
+  </div>
+</div>

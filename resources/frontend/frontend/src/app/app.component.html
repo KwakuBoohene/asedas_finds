@@ -1,0 +1,21 @@
+
+<ngx-ui-loader
+[fgsColor]='color' [pbColor]='color'
+[fgsType]="type"></ngx-ui-loader>
+  <div class="body">
+    <ng-container *ngIf="!hideNav">
+      <app-general-header></app-general-header>
+    </ng-container>
+
+
+    <router-outlet (activate)="changeOfRoutes()"></router-outlet>
+
+    <ng-container *ngIf="!hideNav">
+      <app-general-footer></app-general-footer>
+    </ng-container>
+
+
+  </div>
+
+
+

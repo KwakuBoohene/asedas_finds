@@ -1,0 +1,76 @@
+<ng-container>
+  <app-admin-modal-large [size]=' "lg" ' >
+    <ng-container *ngIf="!size" heading>
+      Add Size
+    </ng-container>
+    <ng-container *ngIf="size" heading>
+      Edit Size
+    </ng-container>
+
+    <ng-container body>
+      <div [@fadeInOnEnter] [@fadeOutOnLeave] *ngIf="errors" class="m-3">
+        <div *ngFor="let error of errors" class="alert alert-danger m-1">
+          {{error}}
+        </div>
+      </div>
+
+      <form [formGroup]='sizeForm'  >
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name</label>
+          <input formControlName='name'
+           type="text" class="form-control" id="">
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="sizeForm.controls.name.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have entered a Name
+           </div>
+        </div>
+
+
+
+        <div class="mb-3">
+          <label for="product" class="form-label">Size Type </label>
+          <select formControlName='type_id' id="" class="">
+            <option value="">Select a Size Type</option>
+              <option *ngFor="let sizeType of sizeTypes"
+               value="{{sizeType.id}}">{{sizeType.type + ' - ' + sizeType.id}} </option>
+          </select>
+
+          <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="sizeForm.controls.type_id.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure Selected A Size Type
+           </div>
+        </div>
+
+      </form>
+    </ng-container>
+
+    <ng-container footer>
+      <span class="" *ngIf="!size">
+        <button class="btn btn-primary" (click)="create()">
+          Submit
+        </button>
+      </span>
+
+      <span class="" *ngIf="size">
+        <button class="btn btn-primary" (click)="edit()">
+         Edit
+        </button>
+      </span>
+
+      <span class="ms-3">
+        <button class="btn btn-danger" (click)="closeModal()">
+          Cancel
+        </button>
+      </span>
+
+    </ng-container>
+
+
+
+  </app-admin-modal-large>
+
+</ng-container>
+
+

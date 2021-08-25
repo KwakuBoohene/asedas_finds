@@ -1,0 +1,105 @@
+<ng-container>
+  <app-admin-modal-large [size]=' "lg" ' >
+    <ng-container *ngIf="!category" heading>
+      Add Category
+    </ng-container>
+    <ng-container *ngIf="category" heading>
+      Edit Category
+    </ng-container>
+
+    <ng-container body>
+      <form [formGroup]='categoryForm'  >
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name</label>
+          <input formControlName='name'
+           type="text" class="form-control" id="">
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="categoryForm.controls.name.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have entered a name
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="desc" class="form-label">Description</label>
+          <input type="text" formControlName='desc'
+           class="form-control" id="desc">
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="categoryForm.controls.desc.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have entered a description
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="Image" class="form-label">Image</label>
+          <small *ngIf="category" class="text-danger pe-2">
+            <br>
+            Only Upload an image if you want to overwrite the image already uploaded
+          </small>
+          <input type="file" class="form-control"
+          formControlName='image'
+          #imageInput
+          (change)="processFile(imageInput)"
+           id="image">
+           <small class="text-primary pe-2">Max size : 4MB</small>
+           <small class="text-primary pe-2">Preferred Dimensions in Pixels :  (768*1024)</small>
+           <small class="text-primary pe-2">Preferred Dimensions in cm : (27*36)</small>
+           <small class="text-primary pe-2">File types : JPEG, JPG, PNG</small>
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+            *ngIf="categoryForm.controls.image.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have uploaded an appropriate image
+           </div>
+        </div>
+
+        <div [@fadeInOnEnter]
+        *ngIf="selectedFile" class="img-preview-container">
+
+          <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
+               [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
+          </div>
+        </div>
+
+        <div [@fadeInOnEnter]
+        *ngIf="category && !selectedFile" class="img-preview-container">
+
+          <div class="img-preview"
+               [ngStyle]="{'background-image': 'url(http://localhost/storage/images/'+ category.image + ')'}">
+          </div>
+        </div>
+
+
+      </form>
+    </ng-container>
+
+    <ng-container footer>
+      <span class="" *ngIf="!category">
+        <button class="btn btn-primary" (click)="create()">
+          Submit
+        </button>
+      </span>
+
+      <span class="" *ngIf="category">
+        <button class="btn btn-primary" (click)="edit()">
+         Edit
+        </button>
+      </span>
+
+      <span class="ms-3">
+        <button class="btn btn-danger" (click)="closeModal()">
+          Cancel
+        </button>
+      </span>
+
+    </ng-container>
+
+
+
+  </app-admin-modal-large>
+
+</ng-container>
+
+
+
+

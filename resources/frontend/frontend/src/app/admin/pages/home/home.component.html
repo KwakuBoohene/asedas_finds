@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row bg-white page-cards shadow">
+
+    <div class="col-md-3 col-sm-12">
+      <div class="page-card shadow text-center  ">
+        <div class="title bg-primary">
+          <p class="">
+            REVENUE OVER THIS MONTH
+          </p>
+        </div>
+
+        <div class="card-number text-primary text-center">GHS. 500.00 </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+      <div class=" page-card shadow text-center">
+        <div class="title bg-secondary">
+          <p class="">TOTAL NUMBER OF PRODUCTS</p>
+        </div>
+
+        <div class="card-number text-center text-secondary">50</div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+      <div class="  page-card shadow text-center">
+        <div class="title bg-success">
+          <p class="">TOTAL ORDERS</p>
+        </div>
+
+        <div class="card-number text-success text-center">24</div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+      <div class=" page-card shadow text-center">
+        <div class="title bg-info">
+          <p class="">TOTAL POLLS</p>
+        </div>
+
+        <div class="card-number text-info text-center">15</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row justify-content-md-center p-3 mb-5">
+    <div class="col-md-6 col-sm-12">
+      <div id="chart" class="p-2 mt-5 bg-white shadow">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [dataLabels]="chartOptions.dataLabels"
+
+          [xaxis]="chartOptions.xaxis"
+          [stroke]="chartOptions.stroke"
+          [colors]="chartOptions.colors"
+          [title]="chartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <div id="chart" class="chart p-2 mt-5 bg-white shadow">
+        <apx-chart
+          [series]="chartOptions2.series"
+          [chart]="chartOptions2.chart"
+          [dataLabels]="chartOptions2.dataLabels"
+          [title]="chartOptions2.title"
+          [xaxis]="chartOptions2.xaxis"
+          [stroke]="chartOptions2.stroke"
+          [colors]="chartOptions2.colors"
+          [grid]="chartOptions2.grid"
+        ></apx-chart>
+      </div>
+    </div>
+
+  </div>
+</div>

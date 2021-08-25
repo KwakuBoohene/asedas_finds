@@ -1,0 +1,58 @@
+.asedas-services{
+  background-color: #FAF6E9;
+  color:black;
+  .heading{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom:1rem;
+  }
+  .body{
+    color: var(--bs-info);
+    font-size: 1.2rem;
+  }
+}
+
+.meet-aseda-section{
+  background-color: #E8E5D4;
+  .heading{
+    font-size: 4.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .body{
+    color: var(--bs-info);
+    font-size: 1.2rem;
+  }
+  .name{
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+}
+
+.feature-section{
+  .feature{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  .feature-content{
+    .heading{
+      font-size: 2.5rem;
+      color: var(--bs-info);
+      font-weight: 600;
+      margin-bottom:1rem;
+    }
+    .body{
+      color:var(--bs-info);
+      font-size: 1.2rem;
+    }
+  }
+
+  .feature-image{
+    display:flex;
+    justify-content: center;
+    iframe{
+      height:415px;
+      width:700px;
+    }
+  }
+}

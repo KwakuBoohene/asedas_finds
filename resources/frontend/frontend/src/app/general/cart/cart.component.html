@@ -1,0 +1,160 @@
+<div class="row justify-content-center">
+  <div class="col-11 row justify-content-center">
+    <div *ngIf="items.length>0" class="col-lg-8">
+      <div class="shopping-cart">
+        <div class="heading">
+          <p class="">YOUR SHOPPING CART</p>
+        </div>
+
+        <div  class="cart-items">
+          <div *ngFor="let item of items" class="row mt-3">
+            <div class="col-lg-10">
+              <div  class="cart-item">
+                <div class="row">
+                  <div class="col-lg-3">
+                    <div class="cart-item-img">
+                      <img src='{{"http://localhost/storage/images/" + item.image}}' alt="" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="cart-item-description">
+                      <div class="title">
+                        <p class="">{{item.name}}</p>
+                      </div>
+                      <div class="ref-number">
+                        <p class="">Ref: 003421134</p>
+                      </div>
+                      <div class="qty-selector">
+                        <span class="icon" (click)="reduceQty(item)">
+                          <i class="fas fa-minus"></i>
+                        </span>
+                        <span class="number">
+                          {{item.qty}}
+                        </span>
+                        <span class="icon" (click)="increaseQty(item)">
+                          <i class="fas fa-plus"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="amount d-flex justify-content-center ">
+                      <span class="align-self-center">
+                        {{item.cost  | currency:'GH₵ '}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-lg-2">
+              <div class="cancel d-flex justify-content-center">
+                <span class="align-self-center" (click)="deleteFromCart(item.id)">
+                  <i class="fas fa-times"></i>
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </div>
+    <div *ngIf="items.length>0" class="col-lg-4">
+      <form action="" [formGroup]='paymentForm' class="form p-3">
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <p class="mt-4 fs-3">PLEASE FILL THE FORM BELOW </p>
+            <div class="contact-form-input">
+              <p class="label">EMAIL</p>
+              <span class="input">
+                <input formControlName='email' type="email" class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-12">
+            <div class="contact-form-input">
+              <p class="label">PHONE NUMBER</p>
+              <span class="input">
+                <input formControlName='phone_no'  type="text" class="">
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row justify-content-lg-center mt-2">
+          <div class="col-lg-6">
+            <button type="button"
+            id="checkout-button"
+            angular4-paystack
+        [key]="'pk_test_742a157bc4022afd2b96190d52d2282895cedb51'"
+        [email]="paymentForm.controls.email.value"
+        [amount]="totalCost"
+        [currency]="'GHS'"
+        [ref]="reference"
+        [class]="'btn btn-primary'"
+        (paymentInit)="paymentInit()"
+        (onClose)="paymentCancel()"
+        (callback)="paymentDone($event)"
+            class="contact-form-button d-none">
+              SEND MESSAGE
+            </button>
+          </div>
+        </div>
+
+
+
+      </form>
+
+
+    </div>
+
+    <div *ngIf="items.length===0" class="col-lg-7">
+      <div class="m-5 shopping-cart">
+        <p class="text-center text-primary m-5 fs-1 fw-bold">THERE ARE NO ITEMS IN YOUR CART</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-5" *ngIf="items.length>0" >
+    <div class="total border p-3 fs-3">
+      <div class="d-flex justify-content-between">
+        <span class="fw-bold">
+          TOTAL PRICE:
+        </span>
+
+        <span class="">
+         {{totalCost  | currency:'GH₵ '}}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="items.length>0" class="col-lg-11">
+    <div class="p-5 d-flex justify-content-end">
+      <span class="fs-2 fw-bold text-primary cursor">
+        <a class=""
+
+        (click)="checkout()"
+        >Proceed to Checkout
+          <span class="ps-3">
+            <i class="far fa-arrow-alt-circle-right"></i>
+          </span>
+        </a>
+      </span>
+    </div>
+  </div>
+
+
+</div>

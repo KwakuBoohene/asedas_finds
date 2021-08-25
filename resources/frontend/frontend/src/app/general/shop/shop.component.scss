@@ -1,0 +1,108 @@
+.shop-desc{
+  background-color: #FAF6E9;
+  color:black;
+  .heading{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom:1rem;
+  }
+  .body{
+    color: var(--bs-info);
+    font-size: 1.2rem;
+  }
+
+  .search-option,.sort-option{
+    select{
+      font-size: 1.2rem;
+      padding: 0.5rem 2rem;
+      background-color: transparent;
+    }
+  }
+}
+.searchbar{
+  margin-right:0.5rem;
+}
+.searchbar-space{
+  border-bottom:2px solid black;
+  .search-input{
+    padding:0.5rem;
+  }
+}
+.products-header{
+ color:var(--bs-info);
+ font-weight: 600;
+}
+
+.product-item{
+  font-family: 'Raleway';
+  margin:1rem;
+
+  .product-image img.img-fluid{
+    height: 47vh;
+    min-height:370px;
+    width: 100%;
+  }
+
+  .product-title,.product-price{
+    font-size: 1.3rem;
+    color:var(--bs-info);
+  }
+
+  .product-price{
+    font-weight: 600;
+  }
+
+  .product-button{
+    button{
+      color:white;
+      background-color: var(--bs-info);
+
+      border: none;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+.load-more{
+  margin-top: 3rem;
+  margin-bottom:3rem;
+  button{
+    font-weight: 600;
+    border: 3px solid var(--bs-info);
+    color: var(--bs-info);
+    background-color: white;
+    padding: 0.5rem 3rem;
+    border-radius: 4px;
+  }
+}
+
+.search-button{
+  border-radius: 8px;
+  border:0;
+  font-weight: 600;
+  color:white;
+  background-color: black;
+  padding: 8px 12px;
+  &:hover{
+    color:black;
+    background-color: var(--bs-secondary);
+  }
+
+}
+
+
+
+@media only screen and  (max-device-width: 480px)
+{
+  .product-item{
+    font-family: 'Raleway';
+    margin:1rem;
+
+    .product-image img.img-fluid{
+      min-height: 14rem;
+      max-height: 14rem;
+
+      width: 100%;
+    }
+  }
+}

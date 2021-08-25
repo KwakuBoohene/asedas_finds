@@ -1,0 +1,63 @@
+<ng-container>
+  <app-admin-modal-large [size]=' "lg" ' >
+    <ng-container *ngIf="order" heading>
+      View Order
+    </ng-container>
+
+    <ng-container *ngIf="order" body>
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-10">
+          <p class="">Email : {{order.email}}</p>
+          <p [ngClass]="{'text-danger': order.status===0,'text-success': order.status===1}"
+          class="">Status :  {{order.status===0?'PENDING':'SUCCESSFUL'}}</p>
+          <p class="">Phone Number : {{order.phone_no}}</p>
+          <p class="">Amount : {{order.amount | currency : 'GHS '}}</p>
+          <p class="">Reference : {{order.reference}}</p>
+
+          <table *ngIf="products" class="mt-5 mb-5 table table-striped table-hover text-primary">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Quantity</th>
+                <th scope="col">Product Size</th>
+
+              </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let product of products">
+              <th scope='row'>{{order.id}}</th>
+              <td>{{product.product.name}} </td>
+              <td>{{product.quantity}} </td>
+
+            <td>{{product.size.name}} </td>
+            </tr>
+          </tbody>
+
+          </table>
+
+
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container footer>
+
+      <span class="ms-3">
+        <button class="btn btn-danger" (click)="closeModal()">
+          Cancel
+        </button>
+      </span>
+
+    </ng-container>
+
+
+
+  </app-admin-modal-large>
+
+</ng-container>
+
+
+
+

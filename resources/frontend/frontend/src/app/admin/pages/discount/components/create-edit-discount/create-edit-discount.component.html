@@ -1,0 +1,86 @@
+<ng-container>
+  <app-admin-modal-large [size]=' "lg" ' >
+    <ng-container *ngIf="!discount" heading>
+      Add Discount
+    </ng-container>
+    <ng-container *ngIf="discount" heading>
+      Edit Discount
+    </ng-container>
+
+    <ng-container body>
+      <div [@fadeInOnEnter] [@fadeOutOnLeave] *ngIf="errors" class="m-3">
+        <div *ngFor="let error of errors" class="alert alert-danger m-1">
+          {{error}}
+        </div>
+      </div>
+
+      <form [formGroup]='discountForm'  >
+        <div class="mb-3">
+          <label for="Name" class="form-label">Discount Percent</label>
+          <input formControlName='discount_percent'
+           type="text" class="form-control" id="">
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="discountForm.controls.discount_percent.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have entered a Discount Percentage
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="desc" class="form-label">Status</label><br>
+
+          <span class="">Active</span>
+          <input type='radio' formControlName='active' class="ms-1" [checked]='discountForm.controls.active.value===1' id="active" value=1>
+
+           <span class="ms-3">Disabled</span>
+           <input type='radio' formControlName='active' [checked]='discountForm.controls.active.value===0'
+           class="ms-1"  id="active" value=0>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="product" class="form-label">Product </label>
+          <select formControlName='product' id="" class="">
+            <option value="">Select a product</option>
+              <option *ngFor="let product of products"
+               value="{{product.id}}">{{product.name + ' - ' + product.id}} </option>
+          </select>
+
+          <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="discountForm.controls.product.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure Selected A Product
+           </div>
+        </div>
+
+      </form>
+    </ng-container>
+
+    <ng-container footer>
+      <span class="" *ngIf="!discount">
+        <button class="btn btn-primary" (click)="create()">
+          Submit
+        </button>
+      </span>
+
+      <span class="" *ngIf="discount">
+        <button class="btn btn-primary" (click)="edit()">
+         Edit
+        </button>
+      </span>
+
+      <span class="ms-3">
+        <button class="btn btn-danger" (click)="closeModal()">
+          Cancel
+        </button>
+      </span>
+
+    </ng-container>
+
+
+
+  </app-admin-modal-large>
+
+</ng-container>
+
+

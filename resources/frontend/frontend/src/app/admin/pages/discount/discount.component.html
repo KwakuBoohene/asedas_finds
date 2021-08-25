@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row bg-white">
+    <div class="col-lg-12">
+
+      <div class="add-discounts-button p-5">
+        <button
+        class="btn btn-primary"
+        (click)="openAddModal()"
+        >
+          ADD DISCOUNT
+        </button>
+      </div>
+
+
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-9">
+
+          <div *ngIf="message" [@fadeInOnEnter] [@fadeOutOnLeave] class="m-3">
+            <div class="alert alert-success">
+              {{message}}
+            </div>
+          </div>
+
+          <div class="page-heading">
+            <p class="fs-2 fw-bold text-center">ALL DISCOUNTS</p>
+          </div>
+
+          <table class="mt-5 mb-5 table table-striped table-hover text-primary">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Discount Percent</th>
+                <th scope="col">Status</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product ID </th>
+                <th scope="col"></th>
+              </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let discount of discounts">
+              <th scope='row'>{{discount.id}}</th>
+              <td>{{discount.discount_percent}} </td>
+              <td>
+                <ng-container *ngIf="discount.active==1; else elseTemplate">
+                  <span class="text text-success">ACTIVE</span>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <span class="text text-danger">DISABLED</span>
+                </ng-template>
+
+                </td>
+              <td >
+                <span class="">
+                  {{discount.product?discount.product.name:"----"}}
+                </span>
+              </td>
+              <td>
+                <span  class="">
+                  {{discount.product?discount.product.id:'----'}}
+                </span>
+              </td>
+              <td>
+                <span class="">
+                  <button class="btn btn-success text-white" (click)="edit(discount)">
+                    Edit
+                  </button>
+                </span>
+
+                <span class="ps-3">
+                  <button class="btn btn-danger" (click)="delete(discount)">
+                    Delete
+                  </button>
+                </span>
+              </td>
+
+            </tr>
+          </tbody>
+
+          </table>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<app-create-edit-discount (messageEmitter)='receiveMessage($event)' [discount]='selectedDiscount'></app-create-edit-discount>
+
+
+<app-delete-discount [discount]='deleteDiscount'  ></app-delete-discount>
+
+
+
+

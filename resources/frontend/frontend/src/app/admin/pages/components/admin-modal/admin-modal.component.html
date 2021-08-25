@@ -1,0 +1,35 @@
+<div id="myModal" class="modal"
+*ngIf="isModalShowing" [@fadeInOnEnter] [@fadeOutOnLeave]
+ (click)="onClick($event)" >
+
+  <!-- Modal content -->
+  <div class="modal-content modal-lg"
+  [ngClass]="{'modal-lg': size==='lg','modal-sm':size==='sm'}"
+  id="ModalContent">
+
+    <div class="modal-header bg-primary">
+      <div class="d-flex full justify-content-between">
+        <span class="text-white fw-bold">
+          <ng-content select='[heading]'></ng-content>
+        </span>
+        <span class="text-white" (click)="closeModal()" >
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="modal-body p-4" >
+      <ng-content select="[body]" ></ng-content>
+    </div>
+
+    <div class="modal-footer">
+      <div class="d-flex full justify-content-center">
+        <ng-content select='[footer]'></ng-content>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

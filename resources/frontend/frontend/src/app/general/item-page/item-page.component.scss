@@ -1,0 +1,47 @@
+.image-selector{
+  max-height: 550px;
+  max-width:200px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.image-selector > img{
+  scroll-snap-align: start;
+}
+
+.product-information{
+
+  .name,.price,.description .heading{
+    font-family: 'Raleway';
+    font-weight: 600;
+    color: var(--bs-info);
+
+  }
+  .name{
+    font-size: 2rem;
+  }
+  .price,.description .heading{
+    font-size: 1.3rem;
+  }
+  .description .body{
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    min-height: 430px;
+  }
+
+  .size{
+    select{
+      background-color: #F0F0F0;
+      padding: 6px 4px;
+    }
+  }
+
+  .product-button{
+    font-size: 1.3rem;
+  }
+
+}

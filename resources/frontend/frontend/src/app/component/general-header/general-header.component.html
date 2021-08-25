@@ -1,0 +1,209 @@
+
+<div class="sticky-top">
+
+    <div class="shopping-header bg-dark d-none d-sm-none d-md-none d-lg-block">
+      <div class="d-flex justify-content-between">
+        <div class="country">
+
+        </div>
+
+        <div class="shopping-cart bg-warning d-flex">
+          <div class="p-4 align-self-center fs-1" [routerLink]="['/cart']">
+            <div class="base">
+              <span class="badge1">
+                <span class="badger">{{items.length}}</span>
+                <i class="fas fa-shopping-bag" [routerLink]="['/cart']"></i>
+              </span>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="general-header bg-white d-none d-sm-none d-md-none d-lg-block">
+
+    <div class="d-flex justify-content-between" >
+
+      <div class="header-icon ps-3">
+        <span class="fs-2 fw-bold" [routerLink]="['/']">
+          <img class="img-fluid" src="http://localhost/storage/img/logo_white.png" alt="">
+        </span>
+      </div>
+
+
+        <div class="d-flex
+         align-self-center justify-content-between header-nav">
+
+         <span class="header-nav-item">
+          <a  class=""
+          routerLinkActive="router-link-active"
+          [routerLink]="['/']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Home
+          </a>
+         </span>
+
+
+         <span class="header-nav-item">
+          <a  class="header-nav-item" [routerLink]="['/about']"
+          routerLinkActive="router-link-active">
+            About
+          </a>
+         </span>
+
+
+          <span class="header-nav-item">
+            <a  class="" [routerLink]="['/shop']"
+            routerLinkActive="router-link-active">
+            Shop
+            </a>
+
+          </span>
+
+
+          <span class="header-nav-item">
+            <a (click)="toggleAllServices()"  class="">
+              Services
+             </a>
+             <div class="header-nav-sub-menu p-3"
+             [@fadeInOnEnter]  *ngIf="all_services_show">
+              <p class="sub-item">
+                <a [routerLink]="['/services']" class="">All Services</a>
+              </p>
+               <p class="sub-item">
+                 <a [routerLink]="['/service/shopping-request']" class="">Personal Request</a>
+               </p>
+               <p class="sub-item">
+                <a [routerLink]="['/service/gift-voucher']"
+                class="">Gift Vouchers</a>
+              </p>
+              <p class="sub-item">
+                <a  [routerLink]="['/service/gift-box']" class="">Gift Box</a>
+              </p>
+              <p class="sub-item">
+                <a [routerLink]="['/service/resale']" class="">Clothing Resale</a>
+              </p>
+             </div>
+          </span>
+
+
+          <span class="header-nav-item">
+            <a  class="" [routerLink]="['contact']"
+            routerLinkActive="router-link-active">
+             Contact
+            </a>
+
+          </span>
+
+
+        </div>
+
+
+
+      <div class="searchbar d-flex align-self-center">
+        <span class="searchbar-space">
+          <input type="text" class="search-input">
+
+
+        </span>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- ------------------ This is the mobile view -------------------------------- -->
+    <div class="shopping-header-mobile bg-white d-block d-sm-block d-md-none">
+      <div class="justify-content-between d-flex">
+        <div class="sidebar-button d-flex">
+          <div class="p-1 ps-4 align-self-center fs-1" (click)="sidebar_show=!sidebar_show">
+            <i *ngIf="!sidebar_show" class="fas fa-bars"></i>
+            <i *ngIf="sidebar_show" class="fas fa-times"></i>
+          </div>
+
+        </div>
+
+
+        <div class="header-icon d-flex">
+          <div class="p-1 align-self-center" [routerLink]="['/']">
+            <img class="img-fluid" src="http://localhost/storage/img/logo_white.png" alt="">
+          </div>
+        </div>
+
+
+        <div class="shopping-cart  bg-warning d-flex">
+          <div class="p-4 align-self-center fs-1 ">
+            <span class="badge1" data-badge="27">
+              <i class="fas fa-shopping-bag" [routerLink]="['/cart']"></i>
+            </span>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ------------------ This is the mobile view -------------------------------- -->
+
+
+
+</div>
+
+<div class="notification">
+  <app-notification></app-notification>
+</div>
+
+<div class="sidebar d-block d-sm-block d-md-none" *ngIf="sidebar_show" [@fadeInOnEnter] [@fadeOutOnLeave]>
+  <div class="sidebar-space">
+    <div class="sidebar-item mb-4">
+      <p [routerLink]="['/']" [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"  class="">Home</p>
+    </div>
+
+    <div class="sidebar-item mb-4">
+      <p [routerLink]="['/about']" routerLinkActive="router-link-active"  class="">About</p>
+    </div>
+
+    <div class="sidebar-item mb-4">
+      <p [routerLink]="['/services']"
+      routerLinkActive="router-link-active" class="">Services</p>
+      <div class="sidebar-sub-item" [routerLink]="['/service/shopping-request']"  >
+        <p class="">Personal Request</p>
+      </div>
+      <div class="sidebar-sub-item" [routerLink]="['/service/gift-voucher']">
+        <p class="">Gift Vouchers</p>
+      </div>
+      <div class="sidebar-sub-item" [routerLink]="['/service/gift-box']" >
+        <p class="">Gift Box</p>
+      </div>
+      <div class="sidebar-sub-item" [routerLink]="['/service/resale']">
+        <p class="">Clothing Resale</p>
+      </div>
+
+    </div>
+
+
+    <div class="sidebar-item mb-4">
+      <p [routerLink]="['/shop']" class="">Shop</p>
+      <!-- <div class="sidebar-sub-item">
+        <p class="">Clothing</p>
+      </div>
+      <div class="sidebar-sub-item">
+        <p class="">Accesories</p>
+      </div>
+      <div class="sidebar-sub-item">
+        <p class="">Sales</p>
+      </div> -->
+    </div>
+
+    <div class="sidebar-item mb-4">
+      <p [routerLink]="['contact']" class="">Contact Us</p>
+    </div>
+
+
+  </div>
+
+</div>

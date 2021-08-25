@@ -1,0 +1,61 @@
+<ng-container>
+  <app-admin-modal-large [size]=' "sm" ' >
+    <ng-container *ngIf="!sizeType" heading>
+      Add Size Type
+    </ng-container>
+    <ng-container *ngIf="sizeType" heading>
+      Edit Size Type
+    </ng-container>
+
+    <ng-container body>
+      <div [@fadeInOnEnter] [@fadeOutOnLeave] *ngIf="errors" class="m-3">
+        <div *ngFor="let error of errors" class="alert alert-danger m-1">
+          {{error}}
+        </div>
+      </div>
+
+      <form [formGroup]='sizeTypeForm'  >
+        <div class="mb-3">
+          <label for="Type" class="form-label">Type</label>
+          <input formControlName='type'
+           type="text" class="form-control" id="">
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="sizeTypeForm.controls.type.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have entered a Type
+           </div>
+        </div>
+
+
+
+      </form>
+    </ng-container>
+
+    <ng-container footer>
+      <span class="" *ngIf="!sizeType">
+        <button class="btn btn-primary" (click)="create()">
+          Submit
+        </button>
+      </span>
+
+      <span class="" *ngIf="sizeType">
+        <button class="btn btn-primary" (click)="edit()">
+         Edit
+        </button>
+      </span>
+
+      <span class="ms-3">
+        <button class="btn btn-danger" (click)="closeModal()">
+          Cancel
+        </button>
+      </span>
+
+    </ng-container>
+
+
+
+  </app-admin-modal-large>
+
+</ng-container>
+
+

@@ -1,0 +1,15 @@
+.notification-banner{
+  padding:10px 16px;
+  color:white;
+  font-weight: 500;
+  border-radius: 12px;
+  font-size: 1.1rem;
+}
+
+
+.notification-component{
+  position: relative;
+  z-index: 50;
+  background-color: transparent;
+  width: 100%;
+}

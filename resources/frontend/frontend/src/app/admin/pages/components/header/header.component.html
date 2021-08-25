@@ -1,0 +1,45 @@
+<div class="page-header  mt-5">
+  <div class="page-heading ">
+    <p class="">
+      <ng-content #name></ng-content>
+    </p>
+  </div>
+
+  <div class="user-details ">
+    <div class="user-icon"
+    [ngClass]="{'selected': menu}"
+    (click)="menu = !menu;">
+      <img src="../../../../assets/icons/boss.png" alt="" class="">
+    </div>
+    <div class="arrow flex-center">
+
+    </div>
+    <div class="user-settings" *ngIf="menu">
+      <div class="user-settings-header">
+        <div class="user-settings-header-icon">
+          <img src="../../../../assets/icons/boss.png" alt="" class="">
+
+          <span class="logout-button ">
+            <button class="btn btn-danger" (click)="logout()" >
+              LOGOUT
+            </button>
+          </span>
+        </div>
+        <div class="">
+          <p class="ms-4 mt-2">{{user.username | uppercase}} </p>
+        </div>
+
+      </div>
+
+      <div class="user-settings-body">
+        <div class="user-settings-option">
+          <p class="">Change Password</p>
+        </div>
+        <div class="user-settings-option">
+          <p class="contact-support">Need Help? Contact Support</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

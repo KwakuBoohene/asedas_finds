@@ -1,0 +1,14 @@
+.footer-section{
+  color: var(--bs-info);
+  font-size: 1.2rem;
+  .header{
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  .body{
+    p{
+      margin-bottom: 0.3rem;
+    }
+  }
+}

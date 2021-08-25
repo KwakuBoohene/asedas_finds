@@ -1,0 +1,200 @@
+<ng-container>
+  <app-admin-modal-large [size]=' "lg" ' >
+    <ng-container *ngIf="!product" heading>
+      Add Product
+    </ng-container>
+    <ng-container *ngIf="product" heading>
+      Edit Product
+    </ng-container>
+
+    <ng-container body>
+      <div [@fadeInOnEnter] [@fadeOutOnLeave] *ngIf="errors" class="m-3">
+        <div *ngFor="let error of errors" class="alert alert-danger m-1">
+          {{error}}
+        </div>
+      </div>
+
+      <form [formGroup]='productForm'  >
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name</label>
+          <input formControlName='name'
+           type="text" class="form-control" id="">
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="productForm.controls.name.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have entered a name
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="desc" class="form-label">Description</label>
+          <input type="text" formControlName='desc'
+           class="form-control" id="desc">
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="productForm.controls.desc.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have entered a description
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="Image" class="form-label">Image</label>
+          <small *ngIf="product" class="text-danger pe-2">
+            <br>
+            Only Upload an image if you want to overwrite the image already uploaded
+          </small>
+          <input type="file" class="form-control"
+          multiple
+          formControlName='image'
+          #imageInput
+          (change)="selectFiles(imageInput)"
+           id="image">
+           <small class="text-primary pe-2">Max size : 4MB</small>
+           <small class="text-primary pe-2">Preferred Dimensions in Pixels :  (768*1024)</small>
+           <small class="text-primary pe-2">Preferred Dimensions in cm : (27*36)</small>
+           <small class="text-primary pe-2">File types : JPEG, JPG, PNG</small>
+           <div [@fadeInOnEnter] [@fadeOutOnLeave]
+            *ngIf="productForm.controls.image.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure you have uploaded an appropriate image
+           </div>
+        </div>
+
+        <div [@fadeInOnEnter]
+        *ngIf="selectedFiles.length>0" class="img-preview-container d-flex">
+
+
+          <div *ngFor="let selectedFile of selectedFiles" class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
+               [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
+          </div>
+        </div>
+
+        <div [@fadeInOnEnter]
+        *ngIf="productImages.length>0 && selectedFiles.length<1" class="img-preview-container d-flex">
+
+          <div class="img-preview" *ngFor="let image of productImages"
+               [ngStyle]="{'background-image': 'url(http://localhost/storage/images/'+ image.image + ')'}">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price (GHS) </label>
+          <input type="text" formControlName='price'
+          class="form-control" id="price">
+          <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="productForm.controls.price.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure have entered a price and the price is a valid number
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="qty_left" class="form-label">Quantity Left (Inventory)</label>
+          <input type="number" class="form-control"
+          formControlName='qty_left'
+          id="qty_left">
+          <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="productForm.controls.qty_left.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure have entered a valid quantity
+           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="qty_left" class="form-label">Make Product Available</label>
+          <br>
+          <ng-container *ngIf="product; else elseTemplate">
+            <span class="pe-3">
+              <span class="pe-1">
+                Active
+              </span>
+              <input type="radio" [checked]='product.active'  formControlName="active" value=1 name="" id="">
+            </span>
+
+            <span class="pe-3">
+              <span class="pe-1">
+                Disabled
+              </span>
+              <input type="radio"  [checked]='product.active' formControlName="active" value=0 name="" id="">
+            </span>
+
+          </ng-container>
+          <ng-template #elseTemplate>
+            <span class="pe-3">
+              <span class="pe-1">
+                Active
+              </span>
+              <input type="radio" formControlName="active" value=1 name="" id="">
+            </span>
+
+            <span class="pe-3">
+              <span class="pe-1">
+                Disabled
+              </span>
+              <input type="radio"  formControlName="active" value=0 name="" id="">
+            </span>
+
+          </ng-template>
+
+
+
+          <div [@fadeInOnEnter] [@fadeOutOnLeave]
+           *ngIf="productForm.controls.active.errors && submitted"
+           class="alert alert-danger m-2">
+            Please make sure have selected a choice
+           </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="qty_left" class="form-label">Categories</label>
+          <br>
+          <span *ngFor="let category of categories" class="pe-3">
+            <span class="pe-1 text-primary">{{category.name}}</span>
+            <input type="checkbox" [checked]='selectedCategories.indexOf(category.id.toString())!==-1' (change)='toggleCategory($event)' name=""
+            id="" value={{category.id}}>
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label for="qty_left" class="form-label">Sizes</label>
+          <br>
+          <span *ngFor="let size of sizes" class="pe-3">
+            <span class="pe-1 text-primary">{{size.name + ' '}} {{size.type.type}}</span>
+            <input type="checkbox" [checked]='selectedSizes.indexOf(size.id.toString())!==-1' (change)='toggleSize($event)' name=""
+            id="" value={{size.id}}>
+          </span>
+        </div>
+      </form>
+    </ng-container>
+
+    <ng-container footer>
+      <span class="" *ngIf="!product">
+        <button class="btn btn-primary" (click)="create()">
+          Submit
+        </button>
+      </span>
+
+      <span class="" *ngIf="product">
+        <button class="btn btn-primary" (click)="edit()">
+         Edit
+        </button>
+      </span>
+
+      <span class="ms-3">
+        <button class="btn btn-danger" (click)="closeModal()">
+          Cancel
+        </button>
+      </span>
+
+    </ng-container>
+
+
+
+  </app-admin-modal-large>
+
+</ng-container>
+
+
+
+

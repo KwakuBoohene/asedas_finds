@@ -1,0 +1,62 @@
+.why-are-we-section{
+  background-color: #FCFAF3;
+  color:black;
+  .heading{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom:1rem;
+  }
+  .body{
+    color: var(--bs-info);
+    font-size: 1.2rem;
+  }
+}
+
+.meet-aseda-section{
+  background-color: #E8E5D4;
+  .heading{
+    font-size: 4.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .body{
+    color: var(--bs-info);
+    font-size: 1.2rem;
+  }
+  .name{
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+}
+
+.feature-section{
+  .feature-content{
+    .heading{
+      font-size: 2.5rem;
+      color: var(--bs-info);
+      font-weight: 600;
+      margin-bottom:1rem;
+    }
+    .body{
+      color:var(--bs-info);
+      font-size: 1.2rem;
+    }
+  }
+
+  .feature-image{
+    padding:5rem;
+    display:flex;
+    justify-content: center;
+    img{
+      height:16rem;
+    }
+  }
+}
+
+.img-cut-out{
+  img{
+    min-height: 70vh;
+    min-width: 40vw;
+  }
+
+}

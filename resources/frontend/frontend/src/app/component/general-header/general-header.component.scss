@@ -1,0 +1,126 @@
+
+.header-icon{
+  &:hover{
+    cursor: pointer;
+  }
+  img{
+    max-height: 4rem;
+  }
+}
+
+.header-nav{
+  width: 50%;
+}
+
+.header-nav-item
+{
+
+  a{
+  padding:0 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color:black;
+  font-size: 1.2rem;
+  &:hover{
+    cursor: pointer;
+  }
+  &.router-link-active{
+    font-weight: bold;
+    color:var(--bs-primary);
+  }
+}
+
+
+}
+
+.shopping-cart{
+  color:var(--bs-info);
+}
+
+.general-header{
+  padding: 1rem 0;
+}
+
+.searchbar{
+  margin-right:0.5rem;
+}
+.searchbar-space{
+ 
+  .search-input{
+    padding:0.5rem;
+  }
+}
+
+.shopping-header-mobile{
+  display: none;
+}
+
+.sidebar{
+  height: 100%;
+  position: fixed;
+  display: none;
+  z-index: 50;
+  width:99%;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  background-color: rgba(0,0,0,0.5);
+  transition: 0.5s;
+  padding-top: 60px;
+  .sidebar-space{
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    background-color: white;
+    width:60%;
+    height:100%;
+    .sidebar-item{
+      p{
+        margin-bottom: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      .sidebar-sub-item{
+        p{
+          font-weight: 300;
+        }
+      }
+      &:hover{
+        cursor:pointer;
+      }
+    }
+  }
+
+}
+
+.header-nav-sub-menu{
+    background-color: white;
+    position: absolute; /* Stay in place */
+    z-index: 1;
+  .sub-item{
+    margin: 0;
+    padding: 0;
+    a{
+      font-weight: 500;
+      color: var(--bs-info);
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.badge1 {
+  position:relative;
+}
+.badger {
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  font-size:.5em;
+  background:var(--bs-primary);
+  color:white;
+  width:18px;height:18px;
+  text-align:center;
+  line-height:18px;
+  border-radius:50%;
+  box-shadow:0 0 1px #333;
+}
