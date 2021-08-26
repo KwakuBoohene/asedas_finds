@@ -33,7 +33,7 @@ class EmailController extends Controller
         ];
 
         Mail::send('shopping_request', $data, function($message) {
-            $message->to('kwaku.kwayisi@gmail.com', 'Kwaku Boohene')->subject
+            $message->to('asedasfinds@gmail.com', 'Asedas Finds')->subject
                 ("New Shopping Request");
             $message->from('asedasfinds2@gmail.com','Asedas Finds Admin Portal');
             });
@@ -76,7 +76,7 @@ class EmailController extends Controller
         ];
 
         Mail::send('gift_voucher', $data, function($message) {
-            $message->to('kwaku.kwayisi@gmail.com', 'Kwaku Boohene')->subject
+            $message->to('asedasfinds@gmail.com', 'Asedas Finds')->subject
                 ("Request for Gift Voucher");
             $message->from('asedasfinds2@gmail.com','Asedas Finds Admin Portal');
             });
@@ -118,7 +118,7 @@ class EmailController extends Controller
         ];
 
         Mail::send('gift_box', $data, function($message) {
-            $message->to('kwaku.kwayisi@gmail.com', 'Kwaku Boohene')->subject
+            $message->to('asedasfinds@gmail.com', 'Asedas Finds')->subject
                 ("Request for Gift Box");
             $message->from('asedasfinds2@gmail.com','Asedas Finds Admin Portal');
             });
@@ -150,7 +150,7 @@ class EmailController extends Controller
         ];
 
         Mail::send('resale', $data, function($message) {
-            $message->to('kwaku.kwayisi@gmail.com', 'Kwaku Boohene')->subject
+            $message->to('asedasfinds@gmail.com', 'Asedas Finds')->subject
                 ("New Clothing Resale Request");
             $message->from('asedasfinds2@gmail.com','Asedas Finds Admin Portal');
             });
@@ -180,7 +180,7 @@ class EmailController extends Controller
         ];
 
         Mail::send('contact', $data, function($message) {
-            $message->to('kwaku.kwayisi@gmail.com', 'Kwaku Boohene')->subject
+            $message->to('asedasfinds@gmail.com', 'Asedas Finds')->subject
                 ("New Clothing Resale Request");
             $message->from('asedasfinds2@gmail.com','Asedas Finds Admin Portal');
             });
