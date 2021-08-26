@@ -26,7 +26,7 @@ export class CustomCarouselComponent implements OnInit {
   }
 
   returnUrlString(url:string){
-    return `url(http://localhost/storage/images/${url})`
+    return `url(https://asedasfinds.com/storage/images/${url})`
   }
 
   shopByCategory(id){
