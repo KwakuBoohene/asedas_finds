@@ -12,5 +12,5 @@
 <link rel="stylesheet" href="/assets/frontend/styles.f07642a1706f57fb152e.css"></head>
 <body>
   <app-root></app-root>
-<script src="/assets/frontend/runtime.35ffc7a97735d22c9e7d.js" defer></script><script src="/assets/frontend/polyfills.a4021de53358bb0fec14.js" defer></script><script src="/assets/frontend/scripts.68eee49052ebc1260102.js" defer></script><script src="/assets/frontend/main.8180d2b143d689de9ac0.js" defer></script></body>
+<script src="/assets/frontend/runtime.35ffc7a97735d22c9e7d.js" defer></script><script src="/assets/frontend/polyfills.a4021de53358bb0fec14.js" defer></script><script src="/assets/frontend/scripts.68eee49052ebc1260102.js" defer></script><script src="/assets/frontend/main.7976a444d8706fb2807a.js" defer></script></body>
 </html>
