@@ -108,6 +108,11 @@ export class HelperService {
     return errorArray;
    }
 
+   returnUrl(environment,text:string){
+    let location =  environment.apiUrl+text;
+    return `url(${location})`
+   }
+
 
 
 

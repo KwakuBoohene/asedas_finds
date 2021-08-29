@@ -1,6 +1,8 @@
+import { environment } from 'src/environments/environment';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/http/category/category.service';
+
 
 @Component({
   selector: 'app-custom-carousel',
@@ -10,6 +12,7 @@ import { CategoryService } from 'src/app/services/http/category/category.service
 export class CustomCarouselComponent implements OnInit {
 
   categories:any[] = [];
+  environment = environment;
 
   constructor(
     private categoryService: CategoryService,
@@ -26,7 +29,7 @@ export class CustomCarouselComponent implements OnInit {
   }
 
   returnUrlString(url:string){
-    return `url(https://asedasfinds.com/storage/images/${url})`
+    return `url(${environment.apiUrl}/storage/images/${url})`
   }
 
   shopByCategory(id){

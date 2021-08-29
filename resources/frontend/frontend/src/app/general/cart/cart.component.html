@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-  <div class="col-11 row justify-content-center">
+  <div class="col-12 col-lg-11 row justify-content-center">
     <div *ngIf="items.length>0" class="col-lg-8">
       <div class="shopping-cart">
         <div class="heading">
@@ -8,23 +8,21 @@
 
         <div  class="cart-items">
           <div *ngFor="let item of items" class="row mt-3">
-            <div class="col-lg-10">
+            <div class="col-lg-10 col-8">
               <div  class="cart-item">
                 <div class="row">
                   <div class="col-lg-3">
                     <div class="cart-item-img">
-                      <img src='{{"https://asedasfinds.com/storage/images/" + item.image}}' alt="" class="img-fluid">
+                      <img src='{{environment.apiUrl+ "/storage/images/" + item.image}}' alt="" class="img-fluid">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="cart-item-description">
-                      <div class="title">
+                      <div class="title mt-3">
                         <p class="">{{item.name}}</p>
                       </div>
-                      <div class="ref-number">
-                        <p class="">Ref: 003421134</p>
-                      </div>
-                      <div class="qty-selector">
+
+                      <div class="qty-selector mt-3">
                         <span class="icon" (click)="reduceQty(item)">
                           <i class="fas fa-minus"></i>
                         </span>
@@ -38,8 +36,8 @@
                     </div>
                   </div>
                   <div class="col-lg-3">
-                    <div class="amount d-flex justify-content-center ">
-                      <span class="align-self-center">
+                    <div class="amount mt-2 d-flex justify-content-md-center justify-content-start ">
+                      <span class="align-self-start align-self-md-center align-self-lg-center">
                         {{item.cost  | currency:'GH₵ '}}
                       </span>
                     </div>
@@ -48,7 +46,7 @@
               </div>
 
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-4">
               <div class="cancel d-flex justify-content-center">
                 <span class="align-self-center" (click)="deleteFromCart(item.id)">
                   <i class="fas fa-times"></i>
@@ -64,7 +62,7 @@
 
       </div>
     </div>
-    <div *ngIf="items.length>0" class="col-lg-4">
+    <div *ngIf="items.length>0" class="col-lg-4 col-10">
       <form action="" [formGroup]='paymentForm' class="form p-3">
 
         <div class="row mt-2">

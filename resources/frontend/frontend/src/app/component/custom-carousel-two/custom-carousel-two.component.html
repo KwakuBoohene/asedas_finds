@@ -1,0 +1,16 @@
+<ngx-slick-carousel class="carousel"
+                    #slickModal="slick-carousel"
+                    [config]="slideConfig"
+                    (init)="slickInit($event)"
+                    (breakpoint)="breakpoint($event)"
+                    (afterChange)="afterChange($event)"
+                    (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let image of images" class="slide pe-1 ps-1 hover">
+          <img src='{{environment.apiUrl+ "/storage/images/" + image.image}}' (click)="changeSelectedImage(image.image)" alt="" width="100%">
+    </div>
+</ngx-slick-carousel>
+
+<div style="text-align: center; margin-top: 45px;">
+
+
+</div>

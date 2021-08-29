@@ -1,38 +1,40 @@
 
-<div class="container-fluid m-5" *ngIf="product">
+<div class="container-fluid" *ngIf="product">
   <div class="row justify-content-center pb-3">
-    <div class="col-11 row">
+    <div class="col-lg-11 col-12 justify-content-center row table-display">
 
-      <div class="col-lg-2">
+      <!-- <div class="col-lg-2">
         <div class="image-selector  p-2">
           <div *ngFor="let image of images;let i = index" class="images p-3">
-            <img src='{{"https://asedasfinds.com/storage/images/" + image.image}}' (click)="changeSelectedImage(image.image)" class='img-fluid' alt="">
+            <img src='{{environment.apiUrl+ "/storage/images/" + image.image}}' (click)="changeSelectedImage(image.image)" class='img-fluid' alt="">
           </div>
         </div>
-      </div>
+      </div> -->
 
 
-      <div class="col-lg-4">
-        <div class="product-image-holder">
+      <div class="col-lg-4 col-12">
+        <div class="product-image-holder pt-3">
           <div class="">
-            <img src='{{"https://asedasfinds.com/storage/images/" + selectedImage}}' class='img-fluid' alt="">
+            <img src='{{environment.apiUrl+ "/storage/images/" + selectedImage}}' class='img-fluid' alt="">
           </div>
 
         </div>
+
+        <app-custom-carousel-two [images]='images' (imageEmitter)='changeSelectedImage($event)' ></app-custom-carousel-two>
       </div>
 
-      <div class="col-lg-6">
-        <div class="product-information ms-5">
+      <div class="col-lg-5 col-12">
+        <div class="product-information d-flex justify-content-sm-center flex-column pt-3">
           <div class="name">
             <span class="">{{product.name}}</span>
           </div>
 
           <div class="price">
             <ng-container *ngIf="discount; else elseTemplate">
-              <span class="">{{(discount.active?product.price * (100- discount.discount_percent) *0.01 : product.price) |currency : 'GHC '}} </span>
+              <span class="">{{(discount.active?product.price * (100- discount.discount_percent) *0.01 : product.price) |currency : 'GH₵ '}} </span>
             </ng-container>
             <ng-template #elseTemplate>
-              <span class="">{{product.price}} </span>
+              <span class="">{{product.price | currency: 'GH₵ '}} </span>
             </ng-template>
           </div>
 
@@ -77,6 +79,8 @@
           </div>
         </div>
       </div>
+
+
 
     </div>
 

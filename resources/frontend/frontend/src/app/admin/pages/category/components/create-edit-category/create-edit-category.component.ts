@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { HelperService } from './../../../../../services/helper/helper.service';
 import { CategoryService } from 'src/app/services/http/category/category.service';
 import { Category, ImageSnippet } from './../../../../../types/data-types';
@@ -35,6 +36,7 @@ export class CreateEditCategoryComponent implements OnInit , OnChanges{
       ]})
     ]),
   });
+  environment = environment;
 
   constructor(
     public state:StateService,
