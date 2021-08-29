@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { SizeService } from './../../services/http/size/size.service';
 import { ProductService } from './../../services/http/product/product.service';
@@ -23,6 +24,7 @@ export class ItemPageComponent implements OnInit {
   cart: Item[] = [];
   quantity = 1;
   discount:any;
+  environment = environment;
 
   constructor(
     private route:ActivatedRoute,

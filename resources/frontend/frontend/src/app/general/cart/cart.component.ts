@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { ProductService } from './../../services/http/product/product.service';
 import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -18,14 +19,15 @@ import * as uuid from 'uuid';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  environment = environment
 
   items:Item[];
   references:string[];
   reference = uuid.v4();
   totalCost:number;
   paymentForm = new FormGroup({
-    email : new FormControl('kwaku.kwayisi@gmail.com',[Validators.required,Validators.email] ),
-    phone_no: new FormControl('0552520588',[Validators.required,Validators.minLength(10),Validators.maxLength(13)])
+    email : new FormControl('',[Validators.required,Validators.email] ),
+    phone_no: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(13)])
   })
   submitted:boolean;
   constructor(

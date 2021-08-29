@@ -28,6 +28,8 @@ import { Angular4PaystackModule } from 'angular4-paystack';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ItemPageComponent } from './general/item-page/item-page.component';
 import { NotificationComponent } from './component/notification/notification.component';
+import { CustomCarouselTwoComponent } from './component/custom-carousel-two/custom-carousel-two.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -50,10 +52,11 @@ import { NotificationComponent } from './component/notification/notification.com
 
     ItemPageComponent,
     NotificationComponent,
+    CustomCarouselTwoComponent,
 
   ],
   imports: [
-
+    SlickCarouselModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

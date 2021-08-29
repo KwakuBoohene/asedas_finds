@@ -22,6 +22,7 @@ export class ShopComponent implements OnInit {
   categories:Category[] = [];
   selectedCategory='';
   sortOption='';
+  environment = environment;
 
   constructor(
     private productHTTP: ProductService,
