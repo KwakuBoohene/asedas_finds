@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://asedasfinds.com'
+  apiUrl: 'https://floating-cliffs-79514.herokuapp.com'
 };
